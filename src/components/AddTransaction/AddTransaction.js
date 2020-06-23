@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function AddTransaction() {
+  const [text, setText] = useState("");
+  const [val, setVal] = useState(0);
   return (
     <div className="AddTransaction">
       <div className="AddTransaction-header">Add New Transaction</div>
@@ -12,6 +14,8 @@ export default function AddTransaction() {
           placeholder="Details of transaction..."
           className="addTransaction_input"
           type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
         />
       </div>
       <div className="AddTransaction-Bottom">
@@ -27,7 +31,13 @@ export default function AddTransaction() {
             Enter "-" for expense, "+" for income
           </span>
         </span>
-        <input placeholder="0" className="addTransaction_input" type="number" />
+        <input
+          placeholder="0"
+          className="addTransaction_input"
+          type="number"
+          value={val}
+          onChange={(e) => setVal(e.target.value)}
+        />
       </div>
       <button className="Add-button">Add Transaction</button>
     </div>
