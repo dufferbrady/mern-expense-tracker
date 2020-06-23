@@ -3,6 +3,7 @@ import React from "react";
 import "../../App.css";
 import Balance from "../Balance/Balance";
 import Breakdown from "../Breakdown/Breakdown";
+import AddTransaction from "../AddTransaction/AddTransaction";
 
 export default function Paper() {
   return (
@@ -10,7 +11,7 @@ export default function Paper() {
       <div className="Paper-SideA">
         <Balance />
         <Breakdown />
-        <div>Add Transaction</div>
+        <AddTransaction />
       </div>
       <div className="Paper-SideB">
         <div>Recent Transactions</div>

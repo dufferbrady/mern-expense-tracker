@@ -27,6 +27,7 @@
   /* transition: box-shadow 0.3s ease; */
   box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.5);
   border-radius: 5px;
+  padding-bottom: 35px;
 }
 
 /* .Paper:hover {
@@ -36,6 +37,7 @@
 .Paper-SideA {
   flex-grow: 1;
   margin: 30px 10px;
+  justify-content: center;
 }
 
 .Paper-SideB {
@@ -47,19 +49,96 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 15px;
+  margin: 15px auto 0 auto;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2);
+  width: fit-content;
 }
 
 .breakdown-blockA {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2);
   padding: 15px 30px;
+  border-right: 0.5px solid rgba(0, 0, 0, 0.1);
 }
 
 .breakdown-blockB {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2);
   padding: 15px 30px;
+}
+
+.AddTransaction {
+  margin: 15px auto 0 auto;
+  width: 55%;
+}
+
+.AddTransaction-header {
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 7.5px;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.AddTransaction-Top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px 0;
+}
+
+.AddTransaction-Bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px 0;
+}
+
+.addTransaction_input {
+  width: 100%;
+  padding: 10px;
+  margin: 7.5px 0;
+  outline: none;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 2.5px;
+  box-sizing: border-box;
+}
+
+.addTransaction_input:focus {
+  box-shadow: 0 0px 7px 0 rgba(211, 41, 132, 0.3);
+}
+
+.addTransaction_input:hover {
+  box-shadow: 0 0px 7px 0 rgba(211, 18, 132, 0.3);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Add-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 0;
+  background: #812a7b;
+  outline: none;
+  border: none;
+  color: white;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.Add-button:hover {
+  background: #de0984;
+  transform: scale(1.02);
+}
+
+.Add-button:active {
+  /* background: white;
+  color: #de0984; */
+  transform: scale(0.98);
+  box-shadow: 0 0px 7px 0 rgba(211, 18, 132, 0.3);
 }
