@@ -1,9 +1,16 @@
 import React from "react";
-import AppBody from "./components/HOC/AppBody/AppBody";
 import "./App.css";
 
+import Paper from "./components/Paper/Paper";
+
 function App() {
-  return <AppBody />;
+  return (
+    <div className="App">
+      <div className="App-header">
+        <Paper />
+      </div>
+    </div>
+  );
 }
 
 export default App;
