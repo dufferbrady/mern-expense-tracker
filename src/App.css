@@ -42,3 +42,24 @@
   flex-grow: 1;
   margin: 30px 10px;
 }
+
+.breakdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.breakdown-blockA {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px 30px;
+}
+
+.breakdown-blockB {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0px 7px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px 30px;
+}
