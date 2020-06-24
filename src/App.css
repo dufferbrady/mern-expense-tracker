@@ -142,3 +142,76 @@ input::-webkit-inner-spin-button {
   transform: scale(0.98);
   box-shadow: 0 0px 7px 0 rgba(211, 18, 132, 0.3);
 }
+
+.transactionHistory {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  margin-top: 90px;
+}
+
+.transactionHistory-header {
+  font-size: 25px;
+  letter-spacing: 1px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
+  padding-bottom: 7.5px;
+}
+
+.transactionHistory-list {
+  margin-block-start: 0em;
+  padding-left: 0;
+  border-radius: 5px;
+}
+
+.transactionHistory-listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
+  margin: 0 15px;
+  font-size: 15px;
+  vertical-align: left;
+}
+
+.transactionHistory-listItem:hover {
+  background: #f5f5f5;
+}
+
+.transactionHistory-listItemA {
+  flex-grow: 1;
+  text-align: left;
+  color: #a0a0a0;
+  padding-left: 15px;
+}
+
+.transactionHistory-listItemB {
+  flex-grow: 1;
+}
+
+.transactionHistory-listItemC {
+  flex-grow: 1;
+  text-align: right;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.transactionHistory-value {
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.transactionHistory-icon {
+  border: 1px solid #a0a0a0;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #a0a0a0;
+}
