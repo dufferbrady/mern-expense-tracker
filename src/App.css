@@ -199,9 +199,16 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
-.transactionHistory-value {
+.transactionHistory-value-expense {
   margin-right: 20px;
   vertical-align: middle;
+  color: #ff5a52;
+}
+
+.transactionHistory-value-income {
+  margin-right: 20px;
+  vertical-align: middle;
+  color: #54c22b;
 }
 
 .transactionHistory-icon {

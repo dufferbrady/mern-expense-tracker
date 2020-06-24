@@ -6,17 +6,17 @@ const initialState = {
   transactions: [
     {
       note: "cash",
-      value: "€-800",
+      value: "-800",
       date: Date().substring(4, 10),
     },
     {
       note: "rent",
-      value: "€-75",
+      value: "-75",
       date: Date().substring(4, 10),
     },
     {
       note: "wages",
-      value: "€2000",
+      value: "2000",
       date: Date().substring(4, 10),
     },
   ],

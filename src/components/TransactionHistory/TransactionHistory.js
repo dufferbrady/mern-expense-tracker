@@ -1,30 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { GlobalContext } from "../../context/GlobalState";
+import Transaction from "../Transaction/Transaction";
 
 import "../../App.css";
 
-const initialState = [
-  {
-    note: "cash",
-    value: "€-800",
-    date: Date().substring(4, 10),
-  },
-  {
-    note: "rent",
-    value: "€-75",
-    date: Date().substring(4, 10),
-  },
-  {
-    note: "wages",
-    value: "€2000",
-    date: Date().substring(4, 10),
-  },
-];
-
 export default function TransactionHistory() {
-  const [transactions, setTransactions] = useState(initialState);
+  const { transactions } = useContext(GlobalContext);
   return (
     <div className="transactionHistory">
       <div className="transactionHistory-header">Recent Transactions</div>
@@ -34,20 +16,7 @@ export default function TransactionHistory() {
             key={`${transaction.note}${i}`}
             className="transactionHistory-listItem"
           >
-            <div className="transactionHistory-listItemA">
-              {transaction.date}
-            </div>
-            <div className="transactionHistory-listItemB">
-              {transaction.note}
-            </div>
-            <div className="transactionHistory-listItemC">
-              <div className="transactionHistory-value">
-                {transaction.value}
-              </div>
-              <div className="transactionHistory-icon">
-                <FontAwesomeIcon icon={faEdit} />
-              </div>
-            </div>
+            <Transaction transaction={transaction} />
           </li>
         ))}
       </ul>
