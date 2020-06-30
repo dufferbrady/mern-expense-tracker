@@ -197,6 +197,7 @@ input::-webkit-inner-spin-button {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  min-width: 95px;
 }
 
 .transactionHistory-value-expense {

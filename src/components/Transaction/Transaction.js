@@ -6,7 +6,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
 export default function Transaction({ transaction }) {
-  const sign = transaction.value > 0 ? "+" : "-";
+  const sign = transaction.value > 0 ? "€" : "-€";
   return (
     <>
       <div className="transactionHistory-listItemA">{transaction.date}</div>
@@ -19,7 +19,7 @@ export default function Transaction({ transaction }) {
               : "transactionHistory-value-expense"
           }
         >
-          {`€${sign}${Math.abs(transaction.value)}`}
+          {`${sign}${Math.abs(transaction.value)}`}
         </div>
         <div className="transactionHistory-icon">
           <FontAwesomeIcon icon={faEdit} />
