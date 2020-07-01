@@ -12,7 +12,7 @@ export default function AddTransaction() {
     e.preventDefault();
 
     const newTransaction = {
-      id: Math.floor(Math.random * 100000000),
+      id: Math.floor(Math.random() * 100000000),
       note: text,
       value: +val,
       date: Date().substring(4, 10),

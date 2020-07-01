@@ -7,7 +7,7 @@ export default function Balance() {
 
   const amounts = transactions.map((transaction) => transaction.value);
 
-  const total = amounts.reduce((acc, item) => acc + item);
+  const total = amounts.reduce((acc, item) => (acc += item), 0);
 
   const sign = total > 0 ? "€" : "-€";
   const color = total > 0 ? "#54c22b" : "#ff5a52";

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { GlobalContext } from "../../context/GlobalState";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +8,14 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
 export default function Transaction({ transaction }) {
+  const { deleteTransaction } = useContext(GlobalContext);
+
   const sign = transaction.value > 0 ? "€" : "-€";
+
+  // function deleteTransaction(id) {
+  //   console.log(id);
+  // }
+
   return (
     <>
       <div className="transactionHistory-listItemA">{transaction.date}</div>
@@ -22,7 +31,10 @@ export default function Transaction({ transaction }) {
           {`${sign}${Math.abs(transaction.value)}`}
         </div>
         <div className="transactionHistory-icon">
-          <FontAwesomeIcon icon={faEdit} />
+          <FontAwesomeIcon
+            onClick={() => deleteTransaction(transaction.id)}
+            icon={faEdit}
+          />
         </div>
       </div>
     </>
