@@ -6,6 +6,7 @@ import Balance from "../Balance/Balance";
 import Breakdown from "../Breakdown/Breakdown";
 import AddTransaction from "../AddTransaction/AddTransaction";
 import TransactionHistory from "../TransactionHistory/TransactionHistory";
+import EditTransaction from "../EditTransaction/EditTransaction";
 
 import { GlobalContext } from "../../context/GlobalState";
 
@@ -13,13 +14,6 @@ export default function Paper() {
   const { modal, showModal } = useContext(GlobalContext);
   return (
     <>
-      <Modal
-        style={{ display: "absolute" }}
-        show={modal}
-        cancelModal={() => showModal(false)}
-      >
-        Hey There
-      </Modal>
       <div className="Paper">
         <div className="Paper-SideA">
           <Balance />
@@ -30,6 +24,13 @@ export default function Paper() {
           <TransactionHistory />
         </div>
       </div>
+      <Modal
+        style={{ display: "absolute" }}
+        show={modal}
+        cancelModal={() => showModal(false)}
+      >
+        <EditTransaction />
+      </Modal>
     </>
   );
 }

@@ -244,6 +244,10 @@ input::-webkit-inner-spin-button {
   align-items: center;
 }
 
+.modal_container_null {
+  display: none;
+}
+
 .Backdrop {
   width: 100%;
   height: 100vh;

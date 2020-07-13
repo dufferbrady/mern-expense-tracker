@@ -9,7 +9,7 @@ export default function Modal({ children, show, cancelModal }) {
     <>
       <Backdrop show={show} click={cancelModal} />
       <div
-        className={show ? "modal_container" : null}
+        className={show ? "modal_container" : "modal_container_null"}
         style={{
           transform: show ? "translateY(0)" : "translateY(-100vh)",
           opacity: show ? 1 : 0,

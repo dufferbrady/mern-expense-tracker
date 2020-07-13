@@ -4,6 +4,7 @@ import AppReducer from "./AppReducer";
 
 const initialState = {
   transactions: [],
+  editTransaction: [],
   modal: false,
 };
 
@@ -26,10 +27,18 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
-  function showModal(val) {
+  function editTransactionHandler(transaction) {
+    dispatch({
+      type: "EDIT_TRANSACTION",
+      payload: transaction,
+    });
+  }
+
+  function showModal(val, id) {
     dispatch({
       type: "SHOW_MODAL",
-      payload: val,
+      payload1: val,
+      payload2: id,
     });
   }
 
@@ -41,6 +50,8 @@ export const GlobalProvider = ({ children }) => {
         deleteTransaction,
         modal: state.modal,
         showModal,
+        editTransaction: state.editTransaction,
+        editTransactionHandler,
       }}
     >
       {children}

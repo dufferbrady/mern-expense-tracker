@@ -27,7 +27,10 @@ export default function Transaction({ transaction }) {
           {`${sign}${Math.abs(transaction.value)}`}
         </div>
         <div className="transactionHistory-icon">
-          <FontAwesomeIcon onClick={() => showModal(true)} icon={faEdit} />
+          <FontAwesomeIcon
+            onClick={() => showModal(true, transaction.id)}
+            icon={faEdit}
+          />
         </div>
       </div>
     </>
