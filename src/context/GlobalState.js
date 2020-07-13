@@ -3,26 +3,8 @@ import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
 const initialState = {
-  transactions: [
-    {
-      id: Math.floor(Math.random() * 100000000),
-      note: "cash",
-      value: -800,
-      date: Date().substring(4, 10),
-    },
-    {
-      id: Math.floor(Math.random() * 100000000),
-      note: "rent",
-      value: -75,
-      date: Date().substring(4, 10),
-    },
-    {
-      id: Math.floor(Math.random() * 100000000),
-      note: "wages",
-      value: 2000.5,
-      date: Date().substring(4, 10),
-    },
-  ],
+  transactions: [],
+  modal: false,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -44,12 +26,21 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function showModal(val) {
+    dispatch({
+      type: "SHOW_MODAL",
+      payload: val,
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
         addTransaction,
         deleteTransaction,
+        modal: state.modal,
+        showModal,
       }}
     >
       {children}

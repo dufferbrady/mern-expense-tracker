@@ -8,13 +8,9 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import "../../App.css";
 
 export default function Transaction({ transaction }) {
-  const { deleteTransaction } = useContext(GlobalContext);
+  const { showModal } = useContext(GlobalContext);
 
   const sign = transaction.value > 0 ? "€" : "-€";
-
-  // function deleteTransaction(id) {
-  //   console.log(id);
-  // }
 
   return (
     <>
@@ -31,10 +27,7 @@ export default function Transaction({ transaction }) {
           {`${sign}${Math.abs(transaction.value)}`}
         </div>
         <div className="transactionHistory-icon">
-          <FontAwesomeIcon
-            onClick={() => deleteTransaction(transaction.id)}
-            icon={faEdit}
-          />
+          <FontAwesomeIcon onClick={() => showModal(true)} icon={faEdit} />
         </div>
       </div>
     </>

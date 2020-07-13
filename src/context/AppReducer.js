@@ -12,6 +12,11 @@ export default (state, action) => {
           (transaction) => transaction.id !== action.payload
         ),
       };
+    case "SHOW_MODAL":
+      return {
+        ...state,
+        modal: action.payload,
+      };
     default:
       return state;
   }

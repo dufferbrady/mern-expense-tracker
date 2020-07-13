@@ -9,8 +9,10 @@ export default function Balance() {
 
   const total = amounts.reduce((acc, item) => (acc += item), 0);
 
-  const sign = total > 0 ? "€" : "-€";
-  const color = total > 0 ? "#54c22b" : "#ff5a52";
+  const sign = total >= 0 ? "€" : "-€";
+  const color = total >= 0 ? "#54c22b" : "#ff5a52";
+
+  const absTotal = total * -1;
 
   return (
     <>
@@ -18,7 +20,7 @@ export default function Balance() {
       <div style={{ fontSize: "40px", color: `${color}` }}>
         <strong>
           {sign}
-          {total}
+          {absTotal}
         </strong>
       </div>
     </>

@@ -10,12 +10,15 @@ export default function Breakdown() {
   const amounts = transactions.map((transaction) => transaction.value);
 
   const income = amounts
-    .filter((amount) => amount > 0)
-    .reduce((acc, item) => acc + item);
+    .filter((item) => item > 0)
+    .reduce((acc, item) => (acc += item), 0)
+    .toFixed(2);
 
-  const expense =
-    amounts.filter((amount) => amount < 0).reduce((acc, item) => acc + item) *
-    -1;
+  const expense = (
+    amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
+    -1
+  ).toFixed(2);
+
   return (
     <div className="breakdown">
       <div className="breakdown-blockA">
@@ -27,7 +30,7 @@ export default function Breakdown() {
       <div className="breakdown-blockB">
         <span>Expense</span>
         <span style={{ fontSize: "27.5px", color: "#FF5A52" }}>
-          <strong>{`-€${expense}`}</strong>
+          <strong>{`€${expense}`}</strong>
         </span>
       </div>
     </div>
