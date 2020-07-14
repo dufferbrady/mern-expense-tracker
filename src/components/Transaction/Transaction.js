@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/GlobalState";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { numberWithCommas } from "../../utils/functions";
 
 import "../../App.css";
 
@@ -24,7 +25,7 @@ export default function Transaction({ transaction }) {
               : "transactionHistory-value-expense"
           }
         >
-          {`${sign}${Math.abs(transaction.value)}`}
+          {`${sign}${numberWithCommas(Math.abs(transaction.value))}`}
         </div>
         <div className="transactionHistory-icon">
           <FontAwesomeIcon

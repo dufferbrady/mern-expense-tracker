@@ -84,6 +84,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 5px 0;
+  width: 100%;
 }
 
 .AddTransaction-Bottom {
@@ -163,14 +164,49 @@ input::-webkit-inner-spin-button {
   border-radius: 5px;
 }
 
+.list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.delete-transaction {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  height: 50%;
+  opacity: 0;
+  outline: none;
+  transition: opacity 0.3s ease;
+  margin: auto;
+}
+
+.delete-transaction:hover {
+  transform: scale(1.02);
+}
+
+.delete-transaction:active {
+  transform: scale(0.98);
+  box-shadow: 0 0px 7px 0 rgba(211, 18, 132, 0.3);
+}
+
+.transactionHistory-list .list:hover .delete-transaction {
+  opacity: 1;
+}
+
 .transactionHistory-listItem {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 15px 0;
   border-bottom: 1px dotted rgba(0, 0, 0, 0.15);
-  margin: 0 15px;
+  margin-left: 15px;
   vertical-align: left;
+  flex-grow: 1;
 }
 
 .transactionHistory-listItem:hover {
@@ -242,6 +278,7 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  min-width: 25vw;
 }
 
 .modal_container_null {

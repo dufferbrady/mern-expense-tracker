@@ -40,47 +40,49 @@ export default function EditTransaction() {
   return (
     <>
       <div className="AddTransaction-header">Edit Transaction</div>
-      <form
-        onSubmit={submitTransactionHandle}
-        className="AddTransaction-Bottom"
-      >
-        <div className="AddTransaction-Top">
-          <span style={{ fontSize: "15px" }}>
-            <strong>Note</strong>
+      <div>
+        <form
+          onSubmit={submitTransactionHandle}
+          className="AddTransaction-Bottom"
+        >
+          <div className="AddTransaction-Top">
+            <span style={{ fontSize: "15px" }}>
+              <strong>Note</strong>
+            </span>
+            <input
+              //placeholder={note}
+              defaultValue={note}
+              className="addTransaction_input"
+              type="text"
+              //value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+          </div>
+          <span
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+            }}
+          >
+            <strong style={{ fontSize: "15px" }}>Value</strong>
+            <span style={{ fontSize: "12.5px", marginTop: "2.5px" }}>
+              Enter "-" for expense, "+" for income
+            </span>
           </span>
           <input
-            //placeholder={note}
-            defaultValue={note}
+            //placeholder={amount}
             className="addTransaction_input"
-            type="text"
-            //value={text}
-            onChange={(e) => setText(e.target.value)}
+            type="number"
+            defaultValue={amount}
+            onChange={(e) => setVal(e.target.value)}
           />
-        </div>
-        <span
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-          }}
-        >
-          <strong style={{ fontSize: "15px" }}>Value</strong>
-          <span style={{ fontSize: "12.5px", marginTop: "2.5px" }}>
-            Enter "-" for expense, "+" for income
-          </span>
-        </span>
-        <input
-          //placeholder={amount}
-          className="addTransaction_input"
-          type="number"
-          defaultValue={amount}
-          onChange={(e) => setVal(e.target.value)}
-        />
-        <button className="Add-button">Add Transaction</button>
-      </form>
-      <button onClick={() => showModal(false)} className="Add-button">
-        Cancel
-      </button>
+          <button className="Add-button">Add Transaction</button>
+        </form>
+        <button onClick={() => showModal(false)} className="Add-button">
+          Cancel
+        </button>
+      </div>
     </>
   );
 }

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { numberWithCommas } from "../../utils/functions";
+
 import { GlobalContext } from "../../context/GlobalState";
 
 export default function Balance() {
@@ -12,7 +14,7 @@ export default function Balance() {
   const sign = total >= 0 ? "€" : "-€";
   const color = total >= 0 ? "#54c22b" : "#ff5a52";
 
-  const absTotal = total * -1;
+  const absTotal = total <= 0 ? total * -1 : total;
 
   return (
     <>
@@ -20,7 +22,7 @@ export default function Balance() {
       <div style={{ fontSize: "40px", color: `${color}` }}>
         <strong>
           {sign}
-          {absTotal}
+          {numberWithCommas(absTotal)}
         </strong>
       </div>
     </>

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { numberWithCommas } from "../../utils/functions";
+
 import { GlobalContext } from "../../context/GlobalState";
 
 import "../../App.css";
@@ -24,13 +26,13 @@ export default function Breakdown() {
       <div className="breakdown-blockA">
         <span>Income</span>
         <span style={{ fontSize: "27.5px", color: "#54C22B" }}>
-          <strong>{`€${income}`}</strong>
+          <strong>{`€${numberWithCommas(income)}`}</strong>
         </span>
       </div>
       <div className="breakdown-blockB">
         <span>Expense</span>
         <span style={{ fontSize: "27.5px", color: "#FF5A52" }}>
-          <strong>{`€${expense}`}</strong>
+          <strong>{`€${numberWithCommas(expense)}`}</strong>
         </span>
       </div>
     </div>
