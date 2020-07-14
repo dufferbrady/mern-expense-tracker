@@ -27,7 +27,10 @@ export default function AddTransaction() {
   return (
     <div className="AddTransaction">
       <div className="AddTransaction-header">Add New Transaction</div>
-      <div className="AddTransaction-Top">
+      <form
+        onSubmit={submitTransactionHandle}
+        className="AddTransaction-Bottom"
+      >
         <span style={{ fontSize: "15px" }}>
           <strong>Note</strong>
         </span>
@@ -38,11 +41,6 @@ export default function AddTransaction() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-      </div>
-      <form
-        onSubmit={submitTransactionHandle}
-        className="AddTransaction-Bottom"
-      >
         <span
           style={{
             display: "flex",

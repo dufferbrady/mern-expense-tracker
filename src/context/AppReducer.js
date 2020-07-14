@@ -1,7 +1,6 @@
 export default (state, action) => {
   switch (action.type) {
     case "ADD_TRANSACTION":
-      console.log(state.transactions);
       return {
         ...state,
         transactions: [action.payload, ...state.transactions],
@@ -15,7 +14,7 @@ export default (state, action) => {
       };
     case "EDIT_TRANSACTION":
       const transactionCopy = [...state.transactions];
-      const idx = transactionCopy.map((e) => e.id).indexOf(action.payload.id);
+      const idx = transactionCopy.map((el) => el.id).indexOf(action.payload.id);
 
       transactionCopy.splice(idx, 1, action.payload);
 

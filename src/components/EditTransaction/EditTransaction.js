@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { GlobalContext } from "../../context/GlobalState";
 
 export default function EditTransaction() {
-  const { editTransaction, editTransactionHandler } = useContext(GlobalContext);
+  const { editTransaction, editTransactionHandler, showModal } = useContext(
+    GlobalContext
+  );
 
   const note = editTransaction.map((transaction) => transaction.note);
   const amount = editTransaction.map((transaction) => transaction.value);
@@ -12,6 +14,13 @@ export default function EditTransaction() {
 
   const [text, setText] = useState("");
   const [val, setVal] = useState(0);
+
+  //   useEffect(() => {
+  //     if (editTransaction) {
+  //       setText(note);
+  //       setVal(amount);
+  //     }
+  //   }, []);
 
   const submitTransactionHandle = (e) => {
     e.preventDefault();
@@ -40,10 +49,11 @@ export default function EditTransaction() {
             <strong>Note</strong>
           </span>
           <input
-            placeholder={note}
+            //placeholder={note}
+            defaultValue={note}
             className="addTransaction_input"
             type="text"
-            value={text}
+            //value={text}
             onChange={(e) => setText(e.target.value)}
           />
         </div>
@@ -60,14 +70,17 @@ export default function EditTransaction() {
           </span>
         </span>
         <input
-          placeholder={amount}
+          //placeholder={amount}
           className="addTransaction_input"
           type="number"
-          value={val}
+          defaultValue={amount}
           onChange={(e) => setVal(e.target.value)}
         />
         <button className="Add-button">Add Transaction</button>
       </form>
+      <button onClick={() => showModal(false)} className="Add-button">
+        Cancel
+      </button>
     </>
   );
 }
