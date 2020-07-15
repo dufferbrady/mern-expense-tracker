@@ -11,7 +11,7 @@ const {
 
 router.route("/").get(getTransactions).post(addTransaction);
 
-router.route("/:d").delete(deleteTransaction);
+router.route("/:id").delete(deleteTransaction);
 
 router.route("/edit/:id").get(editTransaction).post(updateTransaction);
 
