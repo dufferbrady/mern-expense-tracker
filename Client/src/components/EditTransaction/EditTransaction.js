@@ -15,12 +15,10 @@ export default function EditTransaction() {
   const [text, setText] = useState("");
   const [val, setVal] = useState(0);
 
-  //   useEffect(() => {
-  //     if (editTransaction) {
-  //       setText(note);
-  //       setVal(amount);
-  //     }
-  //   }, []);
+  useEffect(() => {
+    setText(note);
+    setVal(amount);
+  }, [editTransaction]);
 
   const submitTransactionHandle = (e) => {
     e.preventDefault();
@@ -51,10 +49,10 @@ export default function EditTransaction() {
             </span>
             <input
               //placeholder={note}
-              defaultValue={note}
+              //defaultValue={note}
               className="addTransaction_input"
               type="text"
-              //value={text}
+              value={text}
               onChange={(e) => setText(e.target.value)}
             />
           </div>
@@ -74,7 +72,8 @@ export default function EditTransaction() {
             //placeholder={amount}
             className="addTransaction_input"
             type="number"
-            defaultValue={amount}
+            //defaultValue={amount}
+            value={val}
             onChange={(e) => setVal(e.target.value)}
           />
           <button className="Add-button">Add Transaction</button>
