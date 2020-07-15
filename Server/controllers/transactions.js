@@ -79,13 +79,57 @@ exports.deleteTransaction = async (req, res, next) => {
 // @desc    Get a transaction
 // @route   GET /api/v1/transactions/edit/:id
 // @access  Public
-exports.editTransaction = (req, res, next) => {
-  res.send("GET a transaction");
+exports.editTransaction = async (req, res, next) => {
+  try {
+    const transaction = await Transaction.findById(req.params.id);
+    return res.status(200).json({
+      success: true,
+      data: transaction,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: "Server Error",
+    });
+  }
 };
 
 // @desc    Post edited transaction
 // @route   POST /api/v1/transactions/edit/:id
 // @access  Public
-exports.updateTransaction = (req, res, next) => {
-  res.send("POST edited transaction");
+exports.updateTransaction = async (req, res, next) => {
+  try {
+    const transaction = await Transaction.findById(req.params.id);
+
+    // console.log(transaction);
+    // console.log(req.body);
+
+    const { text, amount } = req.body;
+
+    transaction.text = text;
+    transaction.amount = amount;
+
+    transaction.save();
+
+    return res.status(201).json({
+      success: true,
+      data: transaction,
+    });
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      const messages = Object.values(error.errors).map(
+        (valError) => valError.message
+      );
+
+      return res.status(400).json({
+        success: false,
+        message: messages,
+      });
+    } else {
+      return res.status(500).json({
+        success: false,
+        message: "Server Failure",
+      });
+    }
+  }
 };
