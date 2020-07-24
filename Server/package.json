@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "client": "npm start --prefix client",
+    "client": "npm start --prefix C:\\Users\\Andrew\\source\\mern-expense-tracker\\Client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Andy Brady",

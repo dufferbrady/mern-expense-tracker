@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 
 import { GlobalContext } from "../../context/GlobalState";
 
+import { dateConvertor } from "../../utils/functions";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { numberWithCommas } from "../../utils/functions";
@@ -15,21 +17,23 @@ export default function Transaction({ transaction }) {
 
   return (
     <>
-      <div className="transactionHistory-listItemA">{transaction.date}</div>
-      <div className="transactionHistory-listItemB">{transaction.note}</div>
+      <div className="transactionHistory-listItemA">
+        {dateConvertor(transaction.createAt)}
+      </div>
+      <div className="transactionHistory-listItemB">{transaction.text}</div>
       <div className="transactionHistory-listItemC">
         <div
           className={
-            transaction.value > 0
+            transaction.amount > 0
               ? "transactionHistory-value-income"
               : "transactionHistory-value-expense"
           }
         >
-          {`${sign}${numberWithCommas(Math.abs(transaction.value))}`}
+          {`${sign}${numberWithCommas(Math.abs(transaction.amount))}`}
         </div>
         <div className="transactionHistory-icon">
           <FontAwesomeIcon
-            onClick={() => showModal(true, transaction.id)}
+            onClick={() => showModal(true, transaction._id)}
             icon={faEdit}
           />
         </div>

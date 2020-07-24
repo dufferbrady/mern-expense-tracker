@@ -18,6 +18,7 @@ export default function EditTransaction() {
   useEffect(() => {
     setText(note);
     setVal(amount);
+    // eslint-disable-next-line
   }, [editTransaction]);
 
   const submitTransactionHandle = (e) => {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import "../../App.css";
 import Modal from "../UI/Modal/Modal";
@@ -11,7 +11,12 @@ import EditTransaction from "../EditTransaction/EditTransaction";
 import { GlobalContext } from "../../context/GlobalState";
 
 export default function Paper() {
-  const { modal, showModal } = useContext(GlobalContext);
+  const { modal, showModal, getTransactions } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getTransactions();
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       <div className="Paper">

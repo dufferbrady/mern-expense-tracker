@@ -9,7 +9,7 @@ import "../../App.css";
 export default function Breakdown() {
   const { transactions } = useContext(GlobalContext);
 
-  const amounts = transactions.map((transaction) => transaction.value);
+  const amounts = transactions.map((transaction) => transaction.amount);
 
   const income = amounts
     .filter((item) => item > 0)

@@ -101,9 +101,6 @@ exports.updateTransaction = async (req, res, next) => {
   try {
     const transaction = await Transaction.findById(req.params.id);
 
-    // console.log(transaction);
-    // console.log(req.body);
-
     const { text, amount } = req.body;
 
     transaction.text = text;
