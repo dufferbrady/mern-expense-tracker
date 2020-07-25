@@ -11,11 +11,18 @@ export default function AddTransaction() {
   const submitTransactionHandle = (e) => {
     e.preventDefault();
 
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let yyyy = today.getFullYear();
+
+    today = new Date(yyyy, mm - 1, dd);
+    today = today.toDateString().substring(4, 10);
+
     const newTransaction = {
-      id: Math.floor(Math.random() * 100000000),
-      note: text,
-      value: +val,
-      date: Date().substring(4, 10),
+      text: text,
+      amount: +val,
+      date: today,
     };
 
     setText("");

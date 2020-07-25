@@ -19,6 +19,7 @@ export const GlobalProvider = ({ children }) => {
   async function getTransactions() {
     try {
       const response = await axios.get("/api/v1/transactions");
+      console.log(response.data.data);
       dispatch({
         type: "GET_TRANSACTIONS",
         payload: response.data.data,
@@ -31,11 +32,26 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  function addTransaction(transaction) {
-    dispatch({
-      type: "ADD_TRANSACTION",
-      payload: transaction,
-    });
+  async function addTransaction(transaction) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      console.log(transaction);
+      await axios.post("/api/v1/transactions", transaction, config);
+      dispatch({
+        type: "ADD_TRANSACTION",
+        payload: transaction,
+      });
+    } catch (error) {
+      console.log(error.response);
+      dispatch({
+        type: "ERROR_TRANSACTIONS",
+        payload: error,
+      });
+    }
   }
 
   function deleteTransaction(id) {

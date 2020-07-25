@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import { GlobalContext } from "../../context/GlobalState";
 import Transaction from "../Transaction/Transaction";
@@ -8,7 +8,6 @@ import "../../App.css";
 export default function TransactionHistory() {
   const { transactions, deleteTransaction } = useContext(GlobalContext);
 
-  console.log(transactions);
   return (
     <div className="transactionHistory">
       <div className="transactionHistory-header">Recent Transactions</div>
@@ -19,7 +18,7 @@ export default function TransactionHistory() {
               <Transaction transaction={transaction} />
             </li>
             <button
-              onClick={() => deleteTransaction(transaction.id)}
+              onClick={() => deleteTransaction(transaction._id)}
               className="delete-transaction"
             >
               x
