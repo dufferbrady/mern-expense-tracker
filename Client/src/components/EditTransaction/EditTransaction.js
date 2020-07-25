@@ -7,9 +7,9 @@ export default function EditTransaction() {
     GlobalContext
   );
 
-  const note = editTransaction.map((transaction) => transaction.note);
-  const amount = editTransaction.map((transaction) => transaction.value);
-  const id = editTransaction.map((transaction) => transaction.id);
+  const note = editTransaction.map((transaction) => transaction.text);
+  const amount = editTransaction.map((transaction) => transaction.amount);
+  const id = editTransaction.map((transaction) => transaction._id);
   const date = editTransaction.map((transaction) => transaction.date);
 
   const [text, setText] = useState("");
@@ -24,9 +24,9 @@ export default function EditTransaction() {
   const submitTransactionHandle = (e) => {
     e.preventDefault();
     const newTransaction = {
-      id: id[0],
-      note: text,
-      value: +val,
+      _id: id[0],
+      text: text,
+      amount: +val,
       date: date[0],
     };
 
@@ -49,8 +49,6 @@ export default function EditTransaction() {
               <strong>Note</strong>
             </span>
             <input
-              //placeholder={note}
-              //defaultValue={note}
               className="addTransaction_input"
               type="text"
               value={text}

@@ -19,7 +19,9 @@ export default (state, action) => {
       };
     case "EDIT_TRANSACTION":
       const transactionCopy = [...state.transactions];
-      const idx = transactionCopy.map((el) => el.id).indexOf(action.payload.id);
+      const idx = transactionCopy
+        .map((el) => el.id)
+        .indexOf(action.payload._id);
 
       transactionCopy.splice(idx, 1, action.payload);
 
@@ -33,7 +35,7 @@ export default (state, action) => {
         ...state,
         modal: action.payload1,
         editTransaction: state.transactions.filter(
-          (transaction) => transaction.id === action.payload2
+          (transaction) => transaction._id === action.payload2
         ),
       };
     case "ERROR_TRANSACTIONS":

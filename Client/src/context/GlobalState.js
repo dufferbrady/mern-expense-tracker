@@ -67,11 +67,28 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  function editTransactionHandler(transaction) {
-    dispatch({
-      type: "EDIT_TRANSACTION",
-      payload: transaction,
-    });
+  async function editTransactionHandler(transaction) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      await axios.post(
+        `/api/v1/transactions/edit/${transaction._id}`,
+        transaction,
+        config
+      );
+      dispatch({
+        type: "EDIT_TRANSACTION",
+        payload: transaction,
+      });
+    } catch (error) {
+      dispatch({
+        type: "ERROR_TRANSACTIONS",
+        payload: error,
+      });
+    }
   }
 
   function showModal(val, id) {
