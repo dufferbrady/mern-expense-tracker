@@ -39,14 +39,12 @@ export const GlobalProvider = ({ children }) => {
       },
     };
     try {
-      console.log(transaction);
       await axios.post("/api/v1/transactions", transaction, config);
       dispatch({
         type: "ADD_TRANSACTION",
         payload: transaction,
       });
     } catch (error) {
-      console.log(error.response);
       dispatch({
         type: "ERROR_TRANSACTIONS",
         payload: error,
@@ -54,11 +52,19 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
-  function deleteTransaction(id) {
-    dispatch({
-      type: "DELETE_TRANSACTION",
-      payload: id,
-    });
+  async function deleteTransaction(id) {
+    try {
+      axios.delete(`/api/v1/transactions/${id}`);
+      dispatch({
+        type: "DELETE_TRANSACTION",
+        payload: id,
+      });
+    } catch (error) {
+      dispatch({
+        type: "ERROR_TRANSACTIONS",
+        payload: error,
+      });
+    }
   }
 
   function editTransactionHandler(transaction) {
