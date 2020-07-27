@@ -4,11 +4,13 @@ export default (state, action) => {
       return {
         ...state,
         transactions: action.payload,
+        loading: false,
       };
     case "ADD_TRANSACTION":
       return {
         ...state,
         transactions: [action.payload, ...state.transactions],
+        newTransaction: action.payload,
       };
     case "DELETE_TRANSACTION":
       return {
@@ -20,7 +22,7 @@ export default (state, action) => {
     case "EDIT_TRANSACTION":
       const transactionCopy = [...state.transactions];
       const idx = transactionCopy
-        .map((el) => el.id)
+        .map((el) => el._id)
         .indexOf(action.payload._id);
 
       transactionCopy.splice(idx, 1, action.payload);

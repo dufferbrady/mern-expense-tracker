@@ -7,7 +7,7 @@ export default function EditTransaction() {
     GlobalContext
   );
 
-  const note = editTransaction.map((transaction) => transaction.text);
+  const note = editTransaction.map((transaction) => transaction.text).join();
   const amount = editTransaction.map((transaction) => transaction.amount);
   const id = editTransaction.map((transaction) => transaction._id);
   const date = editTransaction.map((transaction) => transaction.date);
@@ -68,10 +68,8 @@ export default function EditTransaction() {
             </span>
           </span>
           <input
-            //placeholder={amount}
             className="addTransaction_input"
             type="number"
-            //defaultValue={amount}
             value={val}
             onChange={(e) => setVal(e.target.value)}
           />

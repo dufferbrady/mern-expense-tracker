@@ -12,8 +12,8 @@ export default function TransactionHistory() {
     <div className="transactionHistory">
       <div className="transactionHistory-header">Recent Transactions</div>
       <ul className="transactionHistory-list">
-        {transactions.map((transaction) => (
-          <div key={transaction._id} className="list">
+        {transactions.map((transaction, i) => (
+          <div key={`${i}_${transaction._id}`} className="list">
             <li className="transactionHistory-listItem">
               <Transaction transaction={transaction} />
             </li>

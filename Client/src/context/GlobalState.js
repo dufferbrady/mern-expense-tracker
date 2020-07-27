@@ -6,9 +6,11 @@ import AppReducer from "./AppReducer";
 
 const initialState = {
   transactions: [],
+  newTransaction: [],
   editTransaction: [],
   modal: false,
   error: null,
+  loading: true,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -19,10 +21,10 @@ export const GlobalProvider = ({ children }) => {
   async function getTransactions() {
     try {
       const response = await axios.get("/api/v1/transactions");
-      console.log(response.data.data);
+      const reversedResponse = [...response.data.data].reverse();
       dispatch({
         type: "GET_TRANSACTIONS",
-        payload: response.data.data,
+        payload: reversedResponse,
       });
     } catch (error) {
       dispatch({
@@ -103,11 +105,13 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
+        editTransaction: state.editTransaction,
+        modal: state.modal,
+        loading: state.loading,
+        newTransaction: state.newTransaction,
         addTransaction,
         deleteTransaction,
-        modal: state.modal,
         showModal,
-        editTransaction: state.editTransaction,
         editTransactionHandler,
         getTransactions,
       }}
